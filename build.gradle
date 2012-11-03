@@ -1,0 +1,22 @@
+apply plugin: 'scala'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+version = '2.10.0-RC1'
+
+mainClassName = "ch.netzwerg.euler.ProjectEuler001"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    scalaTools "org.scala-lang:scala-compiler:$version"
+    scalaTools "org.scala-lang:scala-library:$version"
+
+    compile "org.scala-lang:scala-library:$version"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.2'
+}
