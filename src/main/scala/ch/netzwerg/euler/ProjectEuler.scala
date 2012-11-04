@@ -55,10 +55,19 @@ object ProjectEuler005 extends App {
 
 }
 
+object ProjectEuler006 extends App {
+
+  val sum = (1 to 100).sum
+  val result = ((1 to 100).map(x => x * x).sum - (sum * sum)).abs
+
+  println("Problem 6: " + result)
+
+}
+
 object ProjectEuler007 extends App {
 
   val primes: Stream[Int] = 2 #:: Stream.from(3).filter(
-    i => primes.takeWhile(j => j * j <= i).forall(i % _ > 0)
+      i => primes.takeWhile(j => j * j <= i).forall(i % _ > 0)
   )
 
   val result = primes(10000)
