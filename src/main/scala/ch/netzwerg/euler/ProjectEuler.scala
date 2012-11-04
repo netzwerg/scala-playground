@@ -41,7 +41,7 @@ object ProjectEuler004 extends App {
   val result = (for {
     i <- (100 to 999)
     j <- (100 to 999)
-  } yield (i * j)).filter(x => x.toString == x.toString.reverse).sorted.last
+  } yield (i * j)).filter(x => x.toString == x.toString.reverse).max
 
   println("Problem 4: " + result)
 
