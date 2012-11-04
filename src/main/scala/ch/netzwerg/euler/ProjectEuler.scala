@@ -109,3 +109,18 @@ object ProjectEuler008 extends App {
   println("Problem 8: " + result)
 
 }
+
+object ProjectEuler009 extends App {
+
+  val result = for {
+    a <- 1 to 999
+    b <- 1 to 999
+    c = 1000 - a - b
+    if (a < b)
+    if (b < c)
+    if (a * a + b * b == c * c)
+  } yield a * b * c
+
+  println("Problem 9: " + result)
+
+}

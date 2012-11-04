@@ -14,7 +14,7 @@ dependencies {
     compile "org.scala-lang:scala-library:$version"
 }
 
-(1 .. 8).each { i ->
+(1 .. 9).each { i ->
     def problemNumber = i.toString().padLeft(3, "0")
     tasks.add(name: "euler$problemNumber", type: JavaExec, dependsOn: classes) {
         main "ch.netzwerg.euler.ProjectEuler" + problemNumber
