@@ -3,8 +3,6 @@ apply plugin: 'idea'
 
 version = '2.10.0-RC1'
 
-mainClassName = "ch.netzwerg.euler.ProjectEuler001"
-
 repositories {
     mavenCentral()
 }
