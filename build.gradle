@@ -1,6 +1,5 @@
 apply plugin: 'scala'
 apply plugin: 'idea'
-apply plugin: 'application'
 
 version = '2.10.0-RC1'
 
