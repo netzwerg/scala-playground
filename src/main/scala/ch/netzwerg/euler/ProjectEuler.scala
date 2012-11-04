@@ -1,10 +1,9 @@
 package ch.netzwerg.euler
 
-import collection.immutable.IndexedSeq
-
 object ProjectEuler001 extends App {
 
   val result = ((1 until 1000) filter (x => (x % 5 == 0 || x % 3 == 0))).toList.sum
+
   println("Problem 1: " + result)
 
 }
@@ -101,8 +100,12 @@ object ProjectEuler008 extends App {
     "05886116467109405077541002256983155200055935729725" +
     "71636269561882670428252483600823257530420752963450"
 
-  val partitions = for (i <- (0 to (number.length - 5))) yield number.substring(i, i + 5)
-  val result = partitions.map(_.map(_ + "").foldLeft(1)(_ * _.toInt)).max
+  def digitProduct(s: String): Int = {
+    s.map(_.asDigit).foldLeft(1)(_ * _)
+  }
+
+  val result = number.sliding(5).map(digitProduct).max
+
   println("Problem 8: " + result)
 
 }
