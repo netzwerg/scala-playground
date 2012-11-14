@@ -4,7 +4,7 @@ object ProjectEuler001 extends App {
 
   val result = ((1 until 1000) filter (x => (x % 5 == 0 || x % 3 == 0))).toList.sum
 
-  println("Problem 1: " + result)
+  println("Problem 001: " + result)
 
 }
 
@@ -15,7 +15,7 @@ object ProjectEuler002 extends App {
   }
   val result = (fibs takeWhile (_ < 4000000) filter (_ % 2 == 0)).toList.sum
 
-  println("Problem 2: " + result)
+  println("Problem 002: " + result)
 }
 
 object ProjectEuler003 extends App {
@@ -33,7 +33,7 @@ object ProjectEuler003 extends App {
 
   val result = factor(Stream.empty, BigInt(600851475143L), primes).head
 
-  println("Problem 3: " + result)
+  println("Problem 003: " + result)
 
 }
 
@@ -44,7 +44,7 @@ object ProjectEuler004 extends App {
     j <- (100 to 999)
   } yield (i * j)).filter(x => x.toString == x.toString.reverse).max
 
-  println("Problem 4: " + result)
+  println("Problem 004: " + result)
 
 }
 
@@ -52,7 +52,7 @@ object ProjectEuler005 extends App {
 
   val result = Range(20, Int.MaxValue).find(i => (2 to 20).forall(i % _ == 0)).get
 
-  println("Problem 5: " + result)
+  println("Problem 005: " + result)
 
 }
 
@@ -61,7 +61,7 @@ object ProjectEuler006 extends App {
   val sum = (1 to 100).sum
   val result = ((1 to 100).map(x => x * x).sum - (sum * sum)).abs
 
-  println("Problem 6: " + result)
+  println("Problem 006: " + result)
 
 }
 
@@ -73,7 +73,7 @@ object ProjectEuler007 extends App {
 
   val result = primes(10000)
 
-  println("Problem 7: " + result)
+  println("Problem 007: " + result)
 
 }
 
@@ -106,7 +106,7 @@ object ProjectEuler008 extends App {
 
   val result = number.sliding(5).map(digitProduct).max
 
-  println("Problem 8: " + result)
+  println("Problem 008: " + result)
 
 }
 
@@ -121,6 +121,18 @@ object ProjectEuler009 extends App {
     if (a * a + b * b == c * c)
   } yield a * b * c
 
-  println("Problem 9: " + result)
+  println("Problem 009: " + result)
+
+}
+
+object ProjectEuler010 extends App {
+
+  val primes: Stream[Int] = 2 #:: Stream.from(3).filter(i =>
+    primes.takeWhile(j => j * j <= i).forall(i % _ > 0))
+
+  // sum exceeds int range --> using foldLeft with long type
+  val result = primes.takeWhile(_ < 2000000).foldLeft(0L)(_ + _)
+
+  println("Problem 010: " + result)
 
 }
