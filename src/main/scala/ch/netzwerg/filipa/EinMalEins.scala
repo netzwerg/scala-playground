@@ -1,6 +1,7 @@
 package ch.netzwerg.filipa
 
 import java.io.EOFException
+import scala.io.StdIn.readInt
 import scala.util.Random
 
 object EinMalEins extends App {
@@ -22,15 +23,15 @@ object EinMalEins extends App {
 
     print("\nWas gibt " + rechnung + "? ")
     val i = try {
-      Console.readInt()
+      readInt()
     } catch {
       case e: NumberFormatException => 42
       case efo: EOFException => System.exit(0)
     }
     if (i == loesung) {
-      Console.println("RICHTIG")
+      println("RICHTIG")
     } else {
-      Console.println("Leider falsch, es gibt " + loesung)
+      println("Leider falsch, es gibt " + loesung)
     }
   }
 
