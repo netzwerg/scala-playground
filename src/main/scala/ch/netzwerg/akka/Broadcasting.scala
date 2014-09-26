@@ -7,7 +7,7 @@ import ch.netzwerg.akka.Master.{Work, Start}
 import ch.netzwerg.akka.Worker.{Work4You, HeadsUp}
 
 /**
- * Exploring the nuts & bolts of actor pools and broadcasting.
+ * Exploring the nuts &amp; bolts of actor pools and broadcasting.
  */
 object Broadcasting extends App {
   val system = ActorSystem("akka-broadcasting")
@@ -22,8 +22,6 @@ object Master {
 }
 
 class Master extends Actor with ActorLogging {
-
-  import ch.netzwerg.akka.Master.Start
 
   /** Creates a bunch of worker actors, to which messages will be delivered in a round-robin logic */
   val router = context.actorOf(RoundRobinPool(5).props(Props[Worker]), "router")
